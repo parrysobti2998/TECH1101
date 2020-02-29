@@ -1,15 +1,27 @@
 function calculate() {
-	var amount = parseFloat(document.getElementById("amount").value);
+	//declaration and initializatio of required variables
+	const amount = parseFloat(document.getElementById("amount").value);
 
+	//check for amount to be a number
 	if (isNaN(amount)) {
+	  //clear all the fields.
 	  document.getElementById('retained_earning').textContent = "";
 	  document.getElementById('tax_owed').textContent = "";
 	  document.getElementById('tax_rate').textContent = "";
 	  document.getElementById("error").textContent = "";
 	  document.getElementById('amount').value = '';
+	  
+	  //show the Error Message
 	  document.getElementById("error").textContent = "Error: enter a number";
-	} else {
-	  var tax_owed, total_amount = amount;
+	} 
+	else {
+		
+	  //Perform the task if amount is a number
+	  
+	  //declaration and initializatio of required variables
+	  let tax_owed, total_amount = amount;
+	  
+	  //check required conditions
 	  if (amount <= 48535) {
 		tax_owed = (amount * 0.15).toFixed(2);
 	  } else if (amount > 48535 && amount <= 97069) {
@@ -40,6 +52,7 @@ function calculate() {
 		tax_owed = tax_owed.toFixed(2);
 	  }
 
+	  //show calculated values in corresponding DOM elements
 	  document.getElementById('tax_owed').textContent = "$"+tax_owed;
 	  document.getElementById('tax_rate').textContent = ((tax_owed/total_amount)*100).toFixed(2);
 	  document.getElementById('retained_earning').textContent = "$"+(total_amount-tax_owed);
@@ -48,6 +61,8 @@ function calculate() {
 }
 
 function clearAll() {
+	
+	//clear All Fields by setting their content value to null
 	document.getElementById('retained_earning').textContent = "";
 	document.getElementById('tax_owed').textContent = "";
 	document.getElementById('tax_rate').textContent = "";
