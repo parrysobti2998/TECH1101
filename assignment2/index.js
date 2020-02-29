@@ -2,12 +2,12 @@ function calculate() {
 	var amount = parseFloat(document.getElementById("amount").value);
 
 	if (isNaN(amount)) {
-	  document.getElementById('retained_earning').innerHTML = "";
-	  document.getElementById('tax_owed').innerHTML = "";
-	  document.getElementById('tax_rate').innerHTML = "";
-	  document.getElementById("error").innerHTML = "";
+	  document.getElementById('retained_earning').textContent = "";
+	  document.getElementById('tax_owed').textContent = "";
+	  document.getElementById('tax_rate').textContent = "";
+	  document.getElementById("error").textContent = "";
 	  document.getElementById('amount').value = '';
-	  document.getElementById("error").innerHTML = "Error: enter a number";
+	  document.getElementById("error").textContent = "Error: enter a number";
 	} else {
 	  var tax_owed, total_amount = amount;
 	  if (amount <= 48535) {
@@ -40,18 +40,18 @@ function calculate() {
 		tax_owed = tax_owed.toFixed(2);
 	  }
 
-	  document.getElementById('tax_owed').innerHTML = "$"+tax_owed;
-	  document.getElementById('tax_rate').innerHTML = ((tax_owed/total_amount)*100).toFixed(2);
-	  document.getElementById('retained_earning').innerHTML = "$"+(total_amount-tax_owed);
-	  document.getElementById("error").innerHTML = "";
+	  document.getElementById('tax_owed').textContent = "$"+tax_owed;
+	  document.getElementById('tax_rate').textContent = ((tax_owed/total_amount)*100).toFixed(2);
+	  document.getElementById('retained_earning').textContent = "$"+(total_amount-tax_owed);
+	  document.getElementById("error").textContent = "";
 	}
 }
 
 function clearAll() {
-	document.getElementById('retained_earning').innerHTML = "";
-	document.getElementById('tax_owed').innerHTML = "";
-	document.getElementById('tax_rate').innerHTML = "";
-	document.getElementById("error").innerHTML = "";
-	document.getElementById("error").innerHTML = "";
+	document.getElementById('retained_earning').textContent = "";
+	document.getElementById('tax_owed').textContent = "";
+	document.getElementById('tax_rate').textContent = "";
+	document.getElementById("error").textContent = "";
+	document.getElementById("error").textContent = "";
 	document.getElementById('amount').value = '';
 }
